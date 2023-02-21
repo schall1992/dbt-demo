@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: mi_primary_certificate
+    description: "An L2 data model"
+    config:
+      materialized: incremental
+      unique_key: certificate_id
+      incremental_strategy: merge
+    columns:
+      - name: certificate_id
+        description: n/a
+        tests:
+          - unique
+          - not_null
+          - relationships
+              to: source("policy_servicing", "policy_servicing_policy_attributes")
+              field: certificate_id
+      - name: mgic_loan_id
+        description: n/a
+        tests:
+          - unique
+          - not_null
+      - name: policy_id
+        description: n/a
+        tests:
+          - unique
+          - not_null
+      - name: policy_type
+        description: n/a
+        tests:
+          - unique
+          - not_null
+      - name: initial_premium_rate
+        description: n/a
+      - name: initial_premium_rate_term_start
+        description: n/a
+        tests:
+          - no_future_dates
+      - name: initial_premium_rate_term_end
+        description: n/a
+      - name: first_renewal_premium_rate
+        description: n/a
+      - name: first_renewal_premium_rate_term_start
+        description: n/a
+      - name: first_renewal_premium_rate_term_end
+        description: n/a 
+      - name: second_renewal_premium_rate
+        description: n/a 
+      - name: second_renewal_premium_rate_term_start
+        description: n/a 
+      - name: second_renewal_premium_rate_term_end
+        description: n/a 
+      - name: third_renewal_premium_rate
+        description: n/a 
+      - name: third_renewal_premium_rate_term_start
+        description: n/a 
+      - name: third_renewal_premium_rate_term_end
+        description: n/a 
+      - name: fourth_renewal_premium_rate
+        description: n/a 
+      - name: fourth_renewal_premium_rate_term_start
+        description: n/a 
+      - name: fourth_renewal_premium_rate_term_end
+        description: n/a

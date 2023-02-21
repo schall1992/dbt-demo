@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: policy_servicing
+    database: "{{ target.database }}"
+    schema: l1
+    freshness: # default freshness
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 240, period: hour}
+    loaded_at_field: event_date
+    tables:
+      - name: policy_servicing_policy_attributes
+        description: "Initial l1 source data"
+        columns:
+          - name: certificate_id
+            description: n/a
+            tests:
+              - not_null
+          - name: mgic_loan_id
+            description: n/a
+            tests:
+              - not_null
+          - name: policy_id
+            description: n/a
+            tests:
+              - not_null
+          - name: policy_type
+            description: n/a
+            tests:
+              - not_null
+      
