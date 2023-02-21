@@ -34,7 +34,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   analytics:
     # Config indicated by + and applies to all inherited files
-    +database: {{ target.database }}
+    +database: "{{ target.database }}"
     l1:
       +materialized: table
       +schema: l1
