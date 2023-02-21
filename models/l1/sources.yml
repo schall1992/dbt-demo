@@ -4,9 +4,9 @@ sources:
   - name: policy_servicing
     database: "{{ target.database }}"
     schema: l1
-    freshness: # default freshness
-      warn_after: {count: 72, period: hour}
-      error_after: {count: 240, period: hour}
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
     loaded_at_field: event_date
     tables:
       - name: policy_servicing_policy_attributes
