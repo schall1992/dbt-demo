@@ -33,15 +33,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   analytics:
-    # Config indicated by + and applies to all inherited files
-    +database: "{{ target.database }}"
+    # Config indicated by + and applies to all files under models/example/
     l1:
       +materialized: table
       +schema: l1
     l2:
       +materialized: table
       +schema: l2
-
-vars:
-  env: 'dev'
 

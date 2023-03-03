@@ -1,9 +1,9 @@
 with src_data as (
   select 
       certificate_id,
-      {{ add_prefix('mgic_loan_id') }} mgic_loan_id,
-      {{ add_prefix('policy_id') }} policy_id,
-      {{ add_prefix('policy_type') }} policy_type,
+      mgic_loan_id,
+      policy_id,
+      policy_type,
       initial_premium_rate,
       initial_premium_rate_term_start,
       initial_premium_rate_term_end,
@@ -25,7 +25,6 @@ with src_data as (
 
   {% if is_incremental() %}
 
-    -- this filter will only be applied on an incremental run
     where event_date > (select max(event_date) from {{ this }})
 
   {% endif %}

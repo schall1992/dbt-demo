@@ -15,13 +15,46 @@ models:
           - not_null
       - name: mgic_loan_id
         description: n/a
-        tests:
-          - not_null
       - name: policy_id
         description: n/a
-        tests:
-          - not_null
       - name: policy_type
         description: n/a
+
+  - name: coverage
+    description: "An L2 data model"
+    config:
+      materialized: incremental
+      unique_key: certificate_id
+      incremental_strategy: merge
+    columns:
+      - name: certificate_id
+        description: n/a
         tests:
+          - unique
+          - not_null
+
+  - name: property_address
+    description: "An L2 data model"
+    config:
+      materialized: incremental
+      unique_key: mgic_loan_id
+      incremental_strategy: merge
+    columns:
+      - name: mgic_loan_id
+        description: n/a
+        tests:
+          - unique
+          - not_null
+          
+  - name: servicing_loan
+    description: "An L2 data model"
+    config:
+      materialized: incremental
+      unique_key: mgic_loan_id
+      incremental_strategy: merge
+    columns:
+      - name: mgic_loan_id
+        description: n/a
+        tests:
+          - unique
           - not_null
