@@ -11,9 +11,9 @@ analytics:
       type: snowflake
       user: DBT_USER
       warehouse: DBT_WH
-    qa:
+    prod:
       account: zo54337.us-east-2.aws
-      database: QA
+      database: PROD
       private_key_passphrase: mgic
       private_key_path: /usr/secrets/rsa_key.p8
       role: DBT_ROLE
