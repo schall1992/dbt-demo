@@ -5,3 +5,5 @@ secrets/
 dbt/
 
 profiles.yml
+
+.DS_Store
