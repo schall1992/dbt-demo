@@ -1,0 +1,25 @@
+analytics:
+  outputs:
+    dev:
+      account: zo54337.us-east-2.aws
+      database: DEV
+      private_key_passphrase: mgic
+      private_key_path: /usr/secrets/rsa_key.p8
+      role: DBT_ROLE
+      schema: mgic
+      threads: 1
+      type: snowflake
+      user: DBT_USER
+      warehouse: DBT_WH
+    qa:
+      account: zo54337.us-east-2.aws
+      database: QA
+      private_key_passphrase: mgic
+      private_key_path: /usr/secrets/rsa_key.p8
+      role: DBT_ROLE
+      schema: mgic
+      threads: 1
+      type: snowflake
+      user: DBT_USER
+      warehouse: DBT_WH
+  target: dev
